@@ -14,6 +14,18 @@ export const ButtonGroup = ({buttons, status}) => {
         payload: button,
       })
     }
+    if(status === 1){
+      dispatch({
+        type: "Vehicle",
+        payload: button,
+      })
+    }
+    if(status === 2){
+      dispatch({
+        type: "Model",
+        payload: button,
+      })
+    }
     dispatch({
       type: "Status",
       payload: status + 1,
@@ -23,11 +35,10 @@ export const ButtonGroup = ({buttons, status}) => {
   const buttonRows = Array.from({ length: rows }, (_, index) => (
     <div key={index} style={{ display: "flex" }}>
       {buttons.slice(index * 4, (index + 1) * 4).map((button, buttonIndex) => (
-        <div style={{margin: "10px 10px 0 10px"}}>
+
           <ClickButton key={buttonIndex} onClick={() => onClick(button)}>
             {button}
           </ClickButton>
-        </div>
       ))}
     </div>
   ));

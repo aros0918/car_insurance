@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { Typography, Progress } from "antd";
 export const Header = (props) => {
-  const { } = props;
+  const { percent } = props;
   return (
     <>
       <Box
@@ -41,7 +41,7 @@ export const Header = (props) => {
             justifyContent: "flex-start"
           }}
         >
-          <Progress percent={50} style={{ width: "70%" }}></Progress>
+          <Progress percent={percent} style={{ width: "70%" }}></Progress>
         </Box>
       </Box>
     </>

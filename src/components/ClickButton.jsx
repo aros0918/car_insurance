@@ -7,9 +7,10 @@ export const ClickButton = (props) => {
         type="primary" 
         size="large" 
         style={{
-          width: '150px', 
+          width: '200px', 
           height: '50px', 
           fontSize: '20px',
+          margin: '10px 10px 0 10px',
         }}
         onClick={onClick}
       >
