@@ -26,6 +26,24 @@ export const ButtonGroup = ({buttons, status}) => {
         payload: button,
       })
     }
+    if(status === 4){
+      dispatch({
+        type: "Year",
+        payload: button,
+      })
+    }
+    if(status === 5){
+      dispatch({
+        type: "Vehicle",
+        payload: button,
+      })
+    }
+    if(status === 6){
+      dispatch({
+        type: "Model",
+        payload: button,
+      })
+    }
     dispatch({
       type: "Status",
       payload: status + 1,
