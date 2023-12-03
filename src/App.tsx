@@ -5,7 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { Provider } from "react-redux";
 import store from "./redux/reducers";
 import { LandingPage, MainPage } from "./pages";
-import { Header } from "./components";
 
 const theme = createTheme({
 
@@ -14,7 +13,7 @@ const theme = createTheme({
 function App() {
   return (
     <>
-      <Header />
+      
       <CssBaseline />
         <ThemeProvider theme={theme}>
           <Provider store={store}>

@@ -1,32 +1,48 @@
-import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
-import { Button, Progress } from "antd";
-
+import { Typography, Progress } from "antd";
 export const Header = (props) => {
   const { } = props;
-
   return (
     <>
       <Box
         sx={{
-          backgroundColor: (theme) =>
-            theme.palette.mode === "light"
-              ? theme.palette.grey[0]
-              : theme.palette.grey[0],
           p: 0,
-          height: 50,
+          height: 100,
           width: "100%",
           zIndex: 1023,
           display: "flex",
-          marginTop: '20px'
+          flexDirection: "row",
+           boxShadow: "0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1)"
+   
         }}
         component="header"
       >
-        <Typography margin="auto" variant="body2" color="text.secondary" align="center" >
-            Fair Insurance
-        </Typography>
-        <Button> Apple </Button>
-        <Progress percent={50}></Progress>
+        <Box
+          sx={{
+            flex: 2,
+            marginRight: "100px",
+            alignItems: "center",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "right"
+          }}
+        >
+          <Typography style={{fontSize: 35}}>
+            Fair <b>Insurance</b>
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            flex: 3,
+            marginRight: "auto",
+            alignItems: "center",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "flex-start"
+          }}
+        >
+          <Progress percent={50} style={{ width: "70%" }}></Progress>
+        </Box>
       </Box>
     </>
   );
