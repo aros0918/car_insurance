@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Box } from "@mui/material"
 
-import { Button } from "antd";
+import { ClickButton } from "../components";
 
 import { useNavigate } from "react-router-dom";
 export const LandingPage = () => {
@@ -27,7 +27,7 @@ export const LandingPage = () => {
       <p>Fair <b>Insurance</b></p>
       <p>Compare Cheap Car</p>
       <h1 style={{fontWeight: "bold"}}> Insurance Quotes!</h1>
-      <Button type="primary" size="large" onClick={() => setPage("/comparison")}> GET STARTED!</Button>
+      <ClickButton onClick={() => setPage("/comparison")}> GET STARTED!</ClickButton>
     </Box>
   )
 }

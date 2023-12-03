@@ -1,16 +1,12 @@
 import { combineReducers } from "redux";
-import review from "./review";
-import reviewrecent from "./review_recent";
-import reviewdetail from './review_detail';
 import status from './step';
-import company from './company';
-import login from './login';
+import year from './year';
+import vehicle from './vehicle';
+import model from './model';
 
 export default combineReducers({
   status,
-  review,
-  reviewrecent,
-  reviewdetail,
-  login,
-  company,
+  year,
+  vehicle,
+  model,
 });
