@@ -9,7 +9,7 @@ export const ClickButton = (props) => {
         style={{
           width: '200px', 
           height: '50px', 
-          fontSize: '20px',
+          fontSize: '15px',
           margin: '10px 10px 0 10px',
         }}
         onClick={onClick}
