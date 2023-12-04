@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/material";
-import { Header, ButtonGroup, ClickButton } from "../components";
+import { Header, ButtonGroup, ClickButton, Footer } from "../components";
 import { Typography, Select, Input } from "antd";
 import { UserOutlined, MailOutlined, PhoneOutlined, HomeOutlined } from '@ant-design/icons';
 
@@ -158,34 +158,37 @@ export const MainPage = () => {
       const generatedButtons = [];
       const generatedOptions = [];
       let data = require('./data/'+year.toString()+'.json');
-      setJsonData(data);  
-      for(let i = 0; i < data.length; i++){
-        if(data[i].pop === true){
-          generatedButtons.push(data[i].value);
+      if(data !== null){
+        setJsonData(data);
+        for(let i = 0; i < data.length; i++){
+          if(data[i].pop === true){
+            generatedButtons.push(data[i].value);
+          }
         }
+        for(let i = 0; i < data.length; i++){
+          generatedOptions.push({
+            value: data[i].value,
+            label: data[i].value,
+          });
+        }
+        setButtons1(generatedButtons);
+        setOptions1(generatedOptions);
       }
-      for(let i = 0; i < data.length; i++){
-        generatedOptions.push({
-          value: data[i].value,
-          label: data[i].value,
-        });
-      }
-      console.log(generatedButtons);
-      setButtons1(generatedButtons);
-      setOptions1(generatedOptions);
     }
     if(status === 2){
       const generatedButtons = [];
-      for(let i = 0; i < jsonData.length; i++){
-        if(jsonData[i].value === vehicle){
-          console.log(jsonData[i].data.length)
-          for(let j = 0; j < jsonData[i].data.length; j++){
-            generatedButtons.push(jsonData[i].data[j].value);
+      if(jsonData !== null){
+        for(let i = 0; i < jsonData.length; i++){
+          if(jsonData[i].value === vehicle){
+            console.log(jsonData[i].data.length)
+            for(let j = 0; j < jsonData[i].data.length; j++){
+              generatedButtons.push(jsonData[i].data[j].value);
+            }
           }
         }
+        console.log(generatedButtons);
+        setButtons2(generatedButtons);
       }
-      console.log(generatedButtons);
-      setButtons2(generatedButtons);
     }
     if(status === 3){
       setFirstmodel(model);
@@ -333,7 +336,6 @@ export const MainPage = () => {
       setOptions3(generatedOptions);
     }
   }, [status]);
-
   useEffect(() => {
     setMonth(null);
     setFirstmodel(null);
@@ -374,10 +376,11 @@ export const MainPage = () => {
       <Box
         sx={{
           display: "flex",
-          justifyContent: "center",
+          // justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
           margin: '50px 24px 0 24px',
+          minHeight: 'calc(100vh - 250px)',
         }}
       >
         {status === 0 && (
@@ -801,15 +804,25 @@ export const MainPage = () => {
            <Typography style={{marginTop: '10px', fontSize: '20px'}}>
              Your Information Is Safe & Secure
            </Typography>
-           <Typography style={{marginTop: '20px', fontSize: '25px'}}>
-             First Name
-           </Typography>
-           <Input style={{width: '400px'}} size="large" placeholder="First Name" prefix={<UserOutlined />} />
-           <Typography style={{marginTop: '20px', fontSize: '25px'}}>
-             Last Name
-           </Typography>
-           <Input style={{width: '400px'}} size="large" placeholder="Last Name" prefix={<UserOutlined />} />
-           <ClickButton onClick={() => dispatch({type: "Status", payload: 26})}> Continue </ClickButton>
+           <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "left",
+                flexDirection: "column",
+                width: '400px',
+              }}
+            >
+              <Typography style={{marginTop: '20px', fontSize: '25px'}}>
+                First Name
+              </Typography>
+              <Input style={{width: '400px'}} size="large" placeholder="First Name" prefix={<UserOutlined />} />
+              <Typography style={{marginTop: '20px', fontSize: '25px'}}>
+                Last Name
+              </Typography>
+              <Input style={{width: '400px'}} size="large" placeholder="Last Name" prefix={<UserOutlined />} />
+           </Box>
+           <ClickButton style={{marginTop: '10px'}} onClick={() => dispatch({type: "Status", payload: 26})}> Continue </ClickButton>
           </>
         )}
         {status === 26 && (
@@ -820,22 +833,33 @@ export const MainPage = () => {
            <Typography style={{marginTop: '10px', fontSize: '20px'}}>
              Complete this final step to see how much you save!
            </Typography>
-           <Typography style={{marginTop: '20px', fontSize: '25px'}}>
-            Street Address
-           </Typography>
-           <Input style={{width: '400px'}} size="large" placeholder="Street Address" prefix={<HomeOutlined />} />
-           <Typography style={{marginTop: '20px', fontSize: '25px'}}>
-            Email
-           </Typography>
-           <Input style={{width: '400px'}} size="large" placeholder="Email" prefix={<MailOutlined />} />
-           <Typography style={{marginTop: '20px', fontSize: '25px'}}>
-            Phone Number
-           </Typography>
-           <Input style={{width: '400px'}} size="large" placeholder="Phone Number" prefix={<PhoneOutlined />} />
-           <ClickButton> Get My Quotes </ClickButton>
+           <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "left",
+                flexDirection: "column",
+                width: '400px',
+              }}
+            >
+              <Typography style={{marginTop: '20px', fontSize: '25px'}}>
+                Street Address
+              </Typography>
+              <Input style={{width: '400px'}} size="large" placeholder="Street Address" prefix={<HomeOutlined />} />
+              <Typography style={{marginTop: '20px', fontSize: '25px'}}>
+                Email
+              </Typography>
+              <Input style={{width: '400px'}} size="large" placeholder="Email" prefix={<MailOutlined />} />
+              <Typography style={{marginTop: '20px', fontSize: '25px'}}>
+                Phone Number
+              </Typography>
+              <Input style={{width: '400px'}} size="large" placeholder="Phone Number" prefix={<PhoneOutlined />} />
+           </Box>
+           <ClickButton style={{marginTop: '10px'}}> Get My Quotes </ClickButton>
           </>
         )}
       </Box>
+      <Footer />
     </>
     
   )
