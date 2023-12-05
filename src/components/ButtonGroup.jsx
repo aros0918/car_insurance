@@ -4,7 +4,7 @@ export const ButtonGroup = ({buttons, status}) => {
 
   const dispatch = useDispatch();
 
-  const rows = Math.ceil(buttons.length / 4); // Calculate the number of rows
+  const rows = Math.ceil(buttons.length / 3); // Calculate the number of rows
 
   const onClick = button => {
     console.log(button);
@@ -52,7 +52,7 @@ export const ButtonGroup = ({buttons, status}) => {
 
   const buttonRows = Array.from({ length: rows }, (_, index) => (
     <div key={index} style={{ display: "flex" }}>
-      {buttons.slice(index * 4, (index + 1) * 4).map((button, buttonIndex) => (
+      {buttons.slice(index * 3, (index + 1) * 3).map((button, buttonIndex) => (
 
           <ClickButton key={buttonIndex} onClick={() => onClick(button)}>
             {button}

@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { Box } from "@mui/material"
-
-import { ClickButton } from "../components";
-
+import './landingpage.css';
+import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
+import logo from '../images/car.png';
 export const LandingPage = () => {
   const [page, setPage] = useState("");
 
@@ -15,19 +14,42 @@ export const LandingPage = () => {
     }
   }, [page]);
   return(
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        margin: '0 24px 0 24px',
-      }}
-    >
-      <p>Fair <b>Insurance</b></p>
-      <p>Compare Cheap Car</p>
-      <h1 style={{fontWeight: "bold"}}> Insurance Quotes!</h1>
-      <ClickButton onClick={() => setPage("/comparison")}> GET STARTED!</ClickButton>
-    </Box>
+    <div>
+      <img src={logo} style={{width: '100%'}}/>
+        <div class="area" style={{marginTop: '-10px'}} >
+          <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div >
+        <div style={{display: "flex", justifyContent: "center", alignItems: "center", top:'calc(50% - 100px)', left: '50%', position: "fixed", transform: "translate(-50%, -50%"}}>
+          <Button 
+            type='link'
+            size="large" 
+            style={{
+              width: 'auto', 
+              height: 'auto', 
+              fontSize: '30px',
+              margin: '10px 10px 0 10px',
+            }}
+            onClick={() => setPage("/comparison")}
+          >
+            <p className="customizeFont1" >&nbsp;GET STARTED!&nbsp;</p>
+          </Button>
+        </div>
+        
+        
+   
+      
+    </div>
+    
   )
 }

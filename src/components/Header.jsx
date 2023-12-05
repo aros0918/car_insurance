@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
-import { Typography, Progress } from "antd";
+import { Progress } from "antd";
+import logo from "../images/blacklogo.png";
 export const Header = (props) => {
   const { percent } = props;
   return (
@@ -12,8 +13,8 @@ export const Header = (props) => {
           zIndex: 1023,
           display: "flex",
           flexDirection: "row",
-           boxShadow: "0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1)"
-   
+          boxShadow: "0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1)",
+          backgroundColor: 'rgb(208,147,215)',
         }}
         component="header"
       >
@@ -21,19 +22,21 @@ export const Header = (props) => {
           sx={{
             flex: 2,
             marginRight: "100px",
+            marginTop: "15px",
             alignItems: "center",
             display: "flex",
             flexDirection: "row",
             justifyContent: "right"
           }}
         >
-          <Typography style={{fontSize: 35}}>
+          {/* <Typography style={{fontSize: 35}}>
             Fair <b>Insurance</b>
-          </Typography>
+          </Typography> */}
+          <img src={logo} width={150}></img>
         </Box>
         <Box
           sx={{
-            flex: 3,
+            flex: 4,
             marginRight: "auto",
             alignItems: "center",
             display: "flex",
@@ -41,7 +44,7 @@ export const Header = (props) => {
             justifyContent: "flex-start"
           }}
         >
-          <Progress percent={percent} style={{ width: "70%" }}></Progress>
+          <Progress percent={percent} style={{ width: "80%" }}></Progress>
         </Box>
       </Box>
     </>

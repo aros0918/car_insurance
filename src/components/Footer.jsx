@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import { Typography } from "antd";
 import { Link } from "react-router-dom";
 export const Footer = (props) => {
   const {  } = props;
@@ -8,13 +7,13 @@ export const Footer = (props) => {
       <Box
         sx={{
           p: 0,
-          // position: "fixed",
           bottom: 0,
-          height: 100,
+          height: 70,
           width: "100%",
           zIndex: 1023,
           display: "flex",
           flexDirection: "row",
+          backgroundColor: 'rgb(208,147,215)',
         }}
         component="footer"
       >

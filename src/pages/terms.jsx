@@ -9,7 +9,7 @@ export const Terms = () => {
           alignItems: "left",
           flexDirection: "column",
           width: '1000px',
-          margin: '50px 0 0 0',
+          padding: '50px 20px 0 20px',
         }}
       >
         <h1>Terms and Conditions</h1>

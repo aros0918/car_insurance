@@ -1,0 +1,40 @@
+.buttonstyle {
+  width: 200px;
+  height: 50px !important;
+  margin: 10px 10px 0 10px;
+  font-size: 20px !important;
+}
+.bigger {
+  width: 200px;
+  height: 50px !important;
+  margin: 10px 10px 0 10px;
+  font-size: 2
+}
+.larger {
+  width: 200px;
+  height: 50px !important;
+  margin: 10px 10px 0 10px;
+  font-size: 2
+}
+
+@media only screen and (min-width: 0px) and (max-width:900px){
+  .buttonstyle {
+    width: 100px;
+    height: 30px !important;
+    margin: 10px 5px 0 5px;
+    font-size: 9px !important;
+  }
+  .larger {
+    width: 120px;
+    height: 30px !important;
+    margin: 10px 10px 0 10px;
+    font-size: 9px !important
+  }
+  .bigger {
+    width: 80px;
+    height: 30px !important;
+    margin: 10px 5px 0 5px;
+    font-size: 9px !important;
+  }
+  
+}

@@ -1,17 +1,15 @@
 import { Button } from "antd";
+import './button.css';
 export const ClickButton = (props) => {
-  const { children, onClick } = props;
+  const { children, onClick, type, className } = props;
+  const buttonType = type || "primary";
+  const name = className || "buttonstyle";
   return (
     <>
       <Button 
-        type="primary" 
-        size="large" 
-        style={{
-          width: '200px', 
-          height: '50px', 
-          fontSize: '15px',
-          margin: '10px 10px 0 10px',
-        }}
+        type={buttonType}
+        size="large"
+        className={name}
         onClick={onClick}
       >
         { children }

@@ -4,6 +4,9 @@ import { Box } from "@mui/material";
 import { Header, ButtonGroup, ClickButton, Footer } from "../components";
 import { Typography, Select, Input } from "antd";
 import { UserOutlined, MailOutlined, PhoneOutlined, HomeOutlined } from '@ant-design/icons';
+import logo from '../images/logo.png';
+import car1 from '../images/ins (1).png';
+import './mainpage.css';
 
 export const MainPage = () => {
   const [buttons, setButtons] = useState([]);
@@ -371,37 +374,40 @@ export const MainPage = () => {
   }, []);
 
   return(
-    <>
+    <div className="customizeFont">
       <Header percent={parseInt((status+1)/27*100)}/>
+      <div>
+        <img src={logo} className="leftimg"/>
+      </div>
+      <div>
+        <img src={car1} className="rightimg" />
+      </div>
       <Box
         sx={{
           display: "flex",
-          // justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          margin: '50px 24px 0 24px',
-          minHeight: 'calc(100vh - 250px)',
+          padding: '50px 24px 0 24px',
+          minHeight: 'calc(100vh - 170px)',
+          backgroundColor: 'rgba(231,198,234,50)'
         }}
       >
         {status === 0 && (
           <>
-           <Typography style={{fontSize: '35px'}}>
-             <b>New York</b> Drivers Can Save Up To <b>$500</b>/Year
+           <Typography className="headword">
+             <p className="textunderline" >&nbsp;<b>New York</b> Drivers Can Save Up To <b>$500</b>/Year&nbsp;</p>
            </Typography>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Select your vehicle year</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div style={{ marginTop: '20px'}}>
              <ButtonGroup buttons={buttons} status={status}/>
            </div>
            <Select
              defaultValue="Prior Years"
              size = 'large'
-             style={{
-               marginTop: '40px',
-               width: 200,
-               height: 50,
-             }}
+            
+             className="selectstyle"
              onChange={handleChange}
              options={options}
            />
@@ -409,20 +415,16 @@ export const MainPage = () => {
         )}
         {status === 1 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Select your vehicle make</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ButtonGroup buttons={buttons1} status={status}/>
            </div>
            <Select
              defaultValue="All makes"
              size = 'large'
-             style={{
-               marginTop: '40px',
-               width: 200,
-               height: 50,
-             }}
+             className="selectstyle"
              onChange={handleChange}
              options={options1}
            />
@@ -430,27 +432,27 @@ export const MainPage = () => {
         )}
         {status === 2 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Select your model</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ButtonGroup buttons={buttons2} status={status}/>
            </div>
           </>
         )}
         {status === 3 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Add second vehicle?</b>
            </Typography>
-           <Typography style={{marginTop: '10px', fontSize: '20px'}}>
+           <Typography className="middleword">
               (Save Additional 20%)
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ClickButton onClick={onSubmit3yes}> Yes </ClickButton>
              <ClickButton onClick={onSubmit3no}> No </ClickButton>
            </div>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
               <p>1 : {firstyear} &nbsp; {firstvehicle} &nbsp; {firstmodel}</p>
               {model !== firstmodel && (<p>2 : {secondyear} &nbsp; {secondvehicle} &nbsp; {secondmodel}</p>)}
            </div>
@@ -458,23 +460,16 @@ export const MainPage = () => {
         )}
         {status === 4 && (
           <>
-           <Typography style={{fontSize: '35px'}}>
-             <b>New York</b> Drivers Can Save Up To <b>$500</b>/Year
-           </Typography>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Select your vehicle year</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ButtonGroup buttons={buttons} status={status}/>
            </div>
            <Select
              defaultValue="Prior Years"
              size = 'large'
-             style={{
-               marginTop: '40px',
-               width: 200,
-               height: 50,
-             }}
+             className="selectstyle"
              onChange={handleChange}
              options={options}
            />
@@ -482,20 +477,16 @@ export const MainPage = () => {
         )}
         {status === 5 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Select your vehicle make</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ButtonGroup buttons={buttons1} status={status}/>
            </div>
            <Select
              defaultValue="All makes"
              size = 'large'
-             style={{
-               marginTop: '40px',
-               width: 200,
-               height: 50,
-             }}
+             className="selectstyle"
              onChange={handleChange}
              options={options1}
            />
@@ -503,20 +494,20 @@ export const MainPage = () => {
         )}
         {status === 6 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Select your model</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ButtonGroup buttons={buttons2} status={status}/>
            </div>
           </>
         )}
         {status === 7 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Do you have a valid drivers license?</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ClickButton onClick={onSubmit7yes}> Yes </ClickButton>
              <ClickButton onClick={onSubmit7no}> No </ClickButton>
            </div>
@@ -524,10 +515,10 @@ export const MainPage = () => {
         )}
         {status === 8 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Do you need an SR-22?</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ClickButton onClick={onSubmit8yes}> Yes </ClickButton>
              <ClickButton onClick={onSubmit8no}> No/Not Sure </ClickButton>
            </div>
@@ -535,10 +526,10 @@ export const MainPage = () => {
         )}
         {status === 9 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Are You Currently Insured?</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ClickButton onClick={onSubmit9yes}> Yes </ClickButton>
              <ClickButton onClick={onSubmit9no}> No/Not Sure </ClickButton>
            </div>
@@ -546,26 +537,22 @@ export const MainPage = () => {
         )}
         {status === 10 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Current auto insurance</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
             <Select
               defaultValue="Other"
               size = 'large'
-              style={{
-                marginTop: '40px',
-                width: 200,
-                height: 50,
-              }}
+              className="selectstyle"
               onChange={handleChange1}
               options={options2}
             />
            </div>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ClickButton onClick={onSubmit10continue}> Continue </ClickButton>
            </div>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
               <p>1 : {firstyear} &nbsp; {firstvehicle} &nbsp; {firstmodel}</p>
               {model !== firstmodel && (<p>2 : {secondyear} &nbsp; {secondvehicle} &nbsp; {secondmodel}</p>)}
            </div>
@@ -573,10 +560,10 @@ export const MainPage = () => {
         )}
         {status === 11 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>How long have you continuously had auto insurance?</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ClickButton onClick={() => dispatch({type: "Status", payload: 12})}> Less Than Year </ClickButton>
              <ClickButton onClick={() => dispatch({type: "Status", payload: 12})}> 1 To 2 Years </ClickButton>
            </div>
@@ -588,22 +575,22 @@ export const MainPage = () => {
         )}
         {status === 12 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Gender</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
-             <ClickButton onClick={onSubmit12male}> Male </ClickButton>
-             <ClickButton onClick={onSubmit12female}> Female </ClickButton>
-             <ClickButton onClick={onSubmit12nonbinary}> Non-Binary </ClickButton>
+           <div className="gap1">
+             <ClickButton className="bigger" onClick={onSubmit12male}> Male </ClickButton>
+             <ClickButton className="bigger" onClick={onSubmit12female}> Female </ClickButton>
+             <ClickButton className="bigger" onClick={onSubmit12nonbinary}> Non-Binary </ClickButton>
            </div>
           </>
         )}
         {status === 13 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Married?</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ClickButton onClick={() => dispatch({type: "Status", payload: 14})}> Yes </ClickButton>
              <ClickButton onClick={() => dispatch({type: "Status", payload: 14})}> No </ClickButton>
            </div>
@@ -611,32 +598,36 @@ export const MainPage = () => {
         )}
         {status === 14 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>What is your credit score?</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
-             <ClickButton onClick={() => dispatch({type: "Status", payload: 15})}> Not Sure (That's Okay!) </ClickButton>
-             <ClickButton onClick={() => dispatch({type: "Status", payload: 15})}> Poor (Below 580) </ClickButton>
-             <ClickButton onClick={() => dispatch({type: "Status", payload: 15})}> Fair/Average (580-679) </ClickButton>
+           <div className="gap1">
+             <ClickButton className="larger" onClick={() => dispatch({type: "Status", payload: 15})}> Not Sure (That's Okay!) </ClickButton>
+             <ClickButton className="larger" onClick={() => dispatch({type: "Status", payload: 15})}> Poor (Below 580) </ClickButton>
            </div>
            <div>
-             <ClickButton onClick={() => dispatch({type: "Status", payload: 15})}> Good (680-719) </ClickButton>
-             <ClickButton onClick={() => dispatch({type: "Status", payload: 15})}> Excellent (720+) </ClickButton>
+             <ClickButton className="larger" onClick={() => dispatch({type: "Status", payload: 15})}> Fair/Average (580-679) </ClickButton>
+             <ClickButton className="larger" onClick={() => dispatch({type: "Status", payload: 15})}> Good (680-719) </ClickButton>
+            </div>
+            <div>
+             <ClickButton className="larger" onClick={() => dispatch({type: "Status", payload: 15})}> Excellent (720+) </ClickButton>
            </div>
           </>
         )}
         {status === 15 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>What is your education level?</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ClickButton onClick={() => dispatch({type: "Status", payload: 16})}> Incomplete </ClickButton>
              <ClickButton onClick={() => dispatch({type: "Status", payload: 16})}> High School </ClickButton>
-             <ClickButton onClick={() => dispatch({type: "Status", payload: 16})}> Some College </ClickButton>
            </div>
            <div>
+             <ClickButton onClick={() => dispatch({type: "Status", payload: 16})}> Some College </ClickButton>
              <ClickButton onClick={() => dispatch({type: "Status", payload: 16})}> Assocaite Degree </ClickButton>
+            </div>
+            <div>
              <ClickButton onClick={() => dispatch({type: "Status", payload: 16})}> Bachelors Degree </ClickButton>
              <ClickButton onClick={() => dispatch({type: "Status", payload: 16})}> Masters Degree </ClickButton>
            </div>
@@ -647,10 +638,10 @@ export const MainPage = () => {
         )}
         {status === 16 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Homeowner?</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ClickButton onClick={() => dispatch({type: "Status", payload: 17})}> Own </ClickButton>
              <ClickButton onClick={() => dispatch({type: "Status", payload: 18})}> Rent </ClickButton>
            </div>
@@ -658,10 +649,10 @@ export const MainPage = () => {
         )}
         {status === 17 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Want to bundle home and auto policies? (Save additional 20%)</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ClickButton onClick={() => dispatch({type: "Status", payload: 18})}> Yes </ClickButton>
              <ClickButton onClick={() => dispatch({type: "Status", payload: 18})}> No </ClickButton>
            </div>
@@ -669,10 +660,10 @@ export const MainPage = () => {
         )}
         {status === 18 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Have you had claims, accidents or violations in the last 3 years?</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ClickButton onClick={() => dispatch({type: "Status", payload: 19})}> Yes </ClickButton>
              <ClickButton onClick={() => dispatch({type: "Status", payload: 22})}> No </ClickButton>
            </div>
@@ -680,117 +671,120 @@ export const MainPage = () => {
         )}
         {status === 19 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>When did the incident occur?</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
-             <ClickButton onClick={() => dispatch({type: "Status", payload: 20})}> Accident: At Fault </ClickButton>
-             <ClickButton onClick={() => dispatch({type: "Status", payload: 20})}> Accident: Not At Fault </ClickButton>
-             <ClickButton onClick={() => dispatch({type: "Status", payload: 20})}> Claim: Theft </ClickButton>
+           <div className="gap1">
+             <ClickButton className="larger" onClick={() => dispatch({type: "Status", payload: 20})}> Accident: At Fault </ClickButton>
+             <ClickButton className="larger" onClick={() => dispatch({type: "Status", payload: 20})}> Accident: Not At Fault </ClickButton>
+           </div>
+           <div>  
+             <ClickButton className="larger" onClick={() => dispatch({type: "Status", payload: 20})}> Claim: Theft </ClickButton>
+             <ClickButton className="larger" onClick={() => dispatch({type: "Status", payload: 20})}> Claim: Other </ClickButton>
+           </div>
+           <div>  
+             <ClickButton className="larger" onClick={() => dispatch({type: "Status", payload: 20})}> Violation: Drunk Driving </ClickButton>
+             <ClickButton className="larger" onClick={() => dispatch({type: "Status", payload: 20})}> Violation: Speeding </ClickButton>
            </div>
            <div>
-             <ClickButton onClick={() => dispatch({type: "Status", payload: 20})}> Claim: Other </ClickButton>
-             <ClickButton onClick={() => dispatch({type: "Status", payload: 20})}> Violation: Drunk Driving </ClickButton>
-             <ClickButton onClick={() => dispatch({type: "Status", payload: 20})}> Violation: Speeding </ClickButton>
-           </div>
-           <div>
-             <ClickButton onClick={() => dispatch({type: "Status", payload: 20})}> Violation: Other Ticket </ClickButton>
+             <ClickButton className="larger" onClick={() => dispatch({type: "Status", payload: 20})}> Violation: Other Ticket </ClickButton>
            </div>
           </>
         )}
         {status === 20 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Amount paid by your insurance?</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ClickButton onClick={() => dispatch({type: "Status", payload: 21})}> Less Than Year </ClickButton>
              <ClickButton onClick={() => dispatch({type: "Status", payload: 21})}> 1-2 Years Ago </ClickButton>
+           </div>
+           <div>
              <ClickButton onClick={() => dispatch({type: "Status", payload: 21})}> 2-3 Years Ago </ClickButton>
            </div>
           </>
         )}
         {status === 21 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>What type of incident was it?</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ClickButton onClick={() => dispatch({type: "Status", payload: 22})}> Less Than $1000 </ClickButton>
              <ClickButton onClick={() => dispatch({type: "Status", payload: 22})}> $1001 To $5000 </ClickButton>
+           </div>
+           <div> 
              <ClickButton onClick={() => dispatch({type: "Status", payload: 22})}> $5001 - $10000 </ClickButton>
+           
+             <ClickButton onClick={() => dispatch({type: "Status", payload: 22})}> More Than $10000 </ClickButton>
            </div>
            <div>
-             <ClickButton onClick={() => dispatch({type: "Status", payload: 22})}> More Than $10000 </ClickButton>
              <ClickButton onClick={() => dispatch({type: "Status", payload: 22})}> Unknown </ClickButton>
            </div>
           </>
         )}
         {status === 22 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Select your birth month</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
-             <ClickButton onClick={() => {dispatch({type: "Status", payload: 23})
+           <div className="gap1">
+             <ClickButton className="bigger" onClick={() => {dispatch({type: "Status", payload: 23})
               setMonth('JAN')}}> JAN </ClickButton>
-             <ClickButton onClick={() => {dispatch({type: "Status", payload: 23})
+             <ClickButton className="bigger" onClick={() => {dispatch({type: "Status", payload: 23})
               setMonth('FEB')}}> FEB </ClickButton>
-             <ClickButton onClick={() => {dispatch({type: "Status", payload: 23})
+             <ClickButton className="bigger" onClick={() => {dispatch({type: "Status", payload: 23})
               setMonth('MAR')}}> MAR </ClickButton>
            </div>
            <div>
-             <ClickButton onClick={() => {dispatch({type: "Status", payload: 23})
+             <ClickButton className="bigger" onClick={() => {dispatch({type: "Status", payload: 23})
               setMonth('APR')}}> APR </ClickButton>
-             <ClickButton onClick={() => {dispatch({type: "Status", payload: 23})
+             <ClickButton className="bigger" onClick={() => {dispatch({type: "Status", payload: 23})
               setMonth('MAY')}}> MAY </ClickButton>
-             <ClickButton onClick={() => {dispatch({type: "Status", payload: 23})
+             <ClickButton className="bigger" onClick={() => {dispatch({type: "Status", payload: 23})
               setMonth('JUN')}}> JUN </ClickButton>
            </div>
            <div>
-             <ClickButton onClick={() => {dispatch({type: "Status", payload: 23})
+             <ClickButton className="bigger" onClick={() => {dispatch({type: "Status", payload: 23})
               setMonth('JUL')}}> JUL </ClickButton>
-             <ClickButton onClick={() => {dispatch({type: "Status", payload: 23})
+             <ClickButton className="bigger" onClick={() => {dispatch({type: "Status", payload: 23})
               setMonth('AUG')}}> AUG </ClickButton>
-             <ClickButton onClick={() => {dispatch({type: "Status", payload: 23})
+             <ClickButton className="bigger" onClick={() => {dispatch({type: "Status", payload: 23})
               setMonth('SEP')}}> SEP </ClickButton>
            </div>
            <div>
-             <ClickButton onClick={() => {dispatch({type: "Status", payload: 23})
+             <ClickButton className="bigger" onClick={() => {dispatch({type: "Status", payload: 23})
               setMonth('OCT')}}> OCT </ClickButton>
-             <ClickButton onClick={() => {dispatch({type: "Status", payload: 23})
+             <ClickButton className="bigger" onClick={() => {dispatch({type: "Status", payload: 23})
               setMonth('NOV')}}> NOV </ClickButton>
-             <ClickButton onClick={() => {dispatch({type: "Status", payload: 23})
+             <ClickButton className="bigger" onClick={() => {dispatch({type: "Status", payload: 23})
               setMonth('DEC')}}> DEC </ClickButton>
            </div>
           </>
         )}
         {status === 23 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Select your birth day</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ButtonGroup buttons={buttons3} status={status}/>
            </div>
           </>
         )}
         {status === 24 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>Select your birth year</b>
            </Typography>
-           <div style={{marginTop: '20px'}}>
+           <div className="gap1">
              <ButtonGroup buttons={buttons4} status={status}/>
            </div>
            <Select
              defaultValue="All years"
              size = 'large'
-             style={{
-               marginTop: '40px',
-               width: 200,
-               height: 50,
-             }}
+             className="selectstyle"
              onChange={handleChange}
              options={options3}
            />
@@ -798,69 +792,61 @@ export const MainPage = () => {
         )}
         {status === 25 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>What Is Your Name?</b>
            </Typography>
-           <Typography style={{marginTop: '10px', fontSize: '20px'}}>
+           <Typography className="middleword">
              Your Information Is Safe & Secure
            </Typography>
            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "left",
-                flexDirection: "column",
-                width: '400px',
-              }}
+              className="boxcontainer"     
             >
-              <Typography style={{marginTop: '20px', fontSize: '25px'}}>
+              <Typography className="informword">
                 First Name
               </Typography>
-              <Input style={{width: '400px'}} size="large" placeholder="First Name" prefix={<UserOutlined />} />
-              <Typography style={{marginTop: '20px', fontSize: '25px'}}>
+              <Input className="inputlength" size="large" placeholder="First Name" prefix={<UserOutlined />} />
+              <Typography className="informword">
                 Last Name
               </Typography>
-              <Input style={{width: '400px'}} size="large" placeholder="Last Name" prefix={<UserOutlined />} />
+              <Input className="inputlength" size="large" placeholder="Last Name" prefix={<UserOutlined />} />
            </Box>
-           <ClickButton style={{marginTop: '10px'}} onClick={() => dispatch({type: "Status", payload: 26})}> Continue </ClickButton>
+           <div className="gap2">
+              <ClickButton  onClick={() => dispatch({type: "Status", payload: 26})}> Continue </ClickButton>
+           </div>
           </>
         )}
         {status === 26 && (
           <>
-           <Typography style={{marginTop: '20px', fontSize: '35px'}}>
+           <Typography className="headword">
              <b>You Qualify For Major Discounts!</b>
            </Typography>
-           <Typography style={{marginTop: '10px', fontSize: '20px'}}>
+           <Typography className="middleword">
              Complete this final step to see how much you save!
            </Typography>
            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "left",
-                flexDirection: "column",
-                width: '400px',
-              }}
+             className="boxcontainer"  
             >
-              <Typography style={{marginTop: '20px', fontSize: '25px'}}>
+              <Typography className="informword">
                 Street Address
               </Typography>
-              <Input style={{width: '400px'}} size="large" placeholder="Street Address" prefix={<HomeOutlined />} />
-              <Typography style={{marginTop: '20px', fontSize: '25px'}}>
+              <Input className="inputlength" size="large" placeholder="Street Address" prefix={<HomeOutlined />} />
+              <Typography className="informword">
                 Email
               </Typography>
-              <Input style={{width: '400px'}} size="large" placeholder="Email" prefix={<MailOutlined />} />
-              <Typography style={{marginTop: '20px', fontSize: '25px'}}>
+              <Input className="inputlength" size="large" placeholder="Email" prefix={<MailOutlined />} />
+              <Typography className="informword">
                 Phone Number
               </Typography>
-              <Input style={{width: '400px'}} size="large" placeholder="Phone Number" prefix={<PhoneOutlined />} />
+              <Input className="inputlength" size="large" placeholder="Phone Number" prefix={<PhoneOutlined />} />
            </Box>
-           <ClickButton style={{marginTop: '10px'}}> Get My Quotes </ClickButton>
+           <div className="gap2">
+              <ClickButton> Get My Quotes </ClickButton>
+           </div>
           </>
         )}
       </Box>
       <Footer />
-    </>
+    </div>
     
   )
 }
