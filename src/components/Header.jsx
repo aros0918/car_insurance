@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { Progress } from "antd";
-import logo from "../images/blacklogo.png";
+import logo from "../images/blacklogo.webp";
 export const Header = (props) => {
   const { percent } = props;
   return (

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import './landingpage.css';
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
-import logo from '../images/car.png';
+import logo from '../images/car.webp';
 export const LandingPage = () => {
   const [page, setPage] = useState("");
 

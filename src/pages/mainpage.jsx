@@ -4,8 +4,8 @@ import { Box } from "@mui/material";
 import { Header, ButtonGroup, ClickButton, Footer } from "../components";
 import { Typography, Select, Input } from "antd";
 import { UserOutlined, MailOutlined, PhoneOutlined, HomeOutlined } from '@ant-design/icons';
-import logo from '../images/logo.png';
-import car1 from '../images/ins (1).png';
+import left_img from '../images/left.webp';
+import right_img from '../images/right.webp';
 import './mainpage.css';
 
 export const MainPage = () => {
@@ -377,10 +377,10 @@ export const MainPage = () => {
     <div className="customizeFont">
       <Header percent={parseInt((status+1)/27*100)}/>
       <div>
-        <img src={logo} className="leftimg"/>
+        <img src={left_img} className="leftimg"/>
       </div>
       <div>
-        <img src={car1} className="rightimg" />
+        <img src={right_img} className="rightimg" />
       </div>
       <Box
         sx={{
