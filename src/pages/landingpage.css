@@ -15,9 +15,9 @@
   width: 100%;
 }
 .inputbutton {
+  width: 400px;
   display: flex;
   font-size: 40px;
-  width: 200px;
   height: 90px !important;
   font-family: 'revuen';
   font-size: 25px;
@@ -32,6 +32,7 @@
   stroke: 2px #c300ff;
 }
 .inputletter {
+  
   display: flex;
   font-family: 'revuen';
   font-size: 25px;
@@ -48,14 +49,14 @@
 .slogan {
   display: none;
   font-family: 'revuen';
-  font-size: 16px;
+  font-size: 25px;
   color: rgb(255,255,255);
   position: fixed;
   justify-content: center;
   align-items: center;
-  left: 50%;
+  left: 10%;
   text-align: center;
-  transform: translate(-50%, -50%);
+  transform: translate(-5%, -50%);
   text-shadow: 0 0 5px #c300ff;
   stroke: 2px #c300ff;
 }
@@ -64,6 +65,7 @@
     display: block;
   }
   .inputbutton {
+    width: 300px;
     display: flex;
     font-family: 'revuen';
     font-size: 12px;
@@ -80,14 +82,14 @@
   .inputletter {
     display: flex;
     font-family: 'revuen';
-    font-size: 12px;
+    font-size: 18px;
     color: rgb(255,255,255);
     position: fixed;
     justify-content: center;
     align-items: center;
-    left: 50%;
+    left: 30%;
     text-align: center;
-    transform: translate(-50%, -50%);
+    transform: translate(-20%, -50%);
     text-shadow: 0 0 5px #c300ff;
     stroke: 2px #c300ff;
   }
