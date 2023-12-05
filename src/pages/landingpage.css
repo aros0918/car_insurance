@@ -7,6 +7,52 @@
   font-family: 'sign';
   src: url('../fonts/sign.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'revuen';
+  src: url('../fonts/Milk\ Mango.ttf') format('truetype');
+}
+.logo {
+  width: 100%;
+}
+.inputbutton {
+  display: flex;
+  font-family: 'revuen';
+  font-size: 12px;
+  color: rgb(255,255,255);
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 0 5px #c300ff;
+  stroke: 2px #c300ff;
+}
+.slogan {
+  display: none;
+  font-family: 'revuen';
+  font-size: 16px;
+  color: rgb(255,255,255);
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 0 5px #c300ff;
+  stroke: 2px #c300ff;
+}
+@media only screen and (min-width: 0px) and (max-width:700px){
+  .slogan {
+    display: block;
+  }
+  .logo {
+    width: 100%;
+    height: 48vh;
+    object-fit: cover;
+    object-position: 45% 55%;
+  }
+}
 body {
   font-family: 'sign', sans-serif;
 }

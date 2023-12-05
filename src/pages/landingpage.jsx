@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import './landingpage.css';
-import { Button } from "antd";
+import { Button, Space, Input } from "antd";
 import { useNavigate } from "react-router-dom";
 import logo from '../images/car.webp';
 export const LandingPage = () => {
@@ -15,7 +15,8 @@ export const LandingPage = () => {
   }, [page]);
   return(
     <div>
-      <img src={logo} style={{width: '100%'}}/>
+        <img src={logo} className="logo"/>
+        
         <div class="area" style={{marginTop: '-10px'}} >
           <ul class="circles">
             <li></li>
@@ -30,25 +31,18 @@ export const LandingPage = () => {
             <li></li>
           </ul>
         </div >
-        <div style={{display: "flex", justifyContent: "center", alignItems: "center", top:'calc(50% - 100px)', left: '50%', position: "fixed", transform: "translate(-50%, -50%"}}>
-          <Button 
-            type='link'
-            size="large" 
-            style={{
-              width: 'auto', 
-              height: 'auto', 
-              fontSize: '30px',
-              margin: '10px 10px 0 10px',
-            }}
-            onClick={() => setPage("/comparison")}
-          >
-            <p className="customizeFont1" >&nbsp;GET STARTED!&nbsp;</p>
-          </Button>
-        </div>
-        
-        
-   
-      
+        <div className="slogan" style={{top: '62%'}}> 
+          Let’s drop your auto insurance rates today</div>
+        <div className="slogan" style={{top: '75%'}}>
+          Find out how much you can save in 1 minute.</div>
+  
+        <div className="inputbutton" style={{top: '44%'}}>
+          please enter your zip code</div>
+        <Space.Compact className="inputbutton" style={{top: '48%'}}>
+          <Input placeholder=" zip code" />
+          <Button type="primary" onClick={() => setPage("/comparison")}>Go!</Button>
+        </Space.Compact>
+
     </div>
     
   )
