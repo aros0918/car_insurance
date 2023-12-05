@@ -36,7 +36,7 @@ export const LandingPage = () => {
         <div className="slogan" style={{top: '75%'}}>
           Find out how much you can save in 1 minute.</div>
   
-        <div className="inputbutton" style={{top: '44%'}}>
+        <div className="inputletter" style={{top: '44%'}}>
           please enter your zip code</div>
         <Space.Compact className="inputbutton" style={{top: '48%'}}>
           <Input placeholder=" zip code" />

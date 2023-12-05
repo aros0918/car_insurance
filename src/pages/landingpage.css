@@ -16,8 +16,25 @@
 }
 .inputbutton {
   display: flex;
+  font-size: 40px;
+  width: 200px;
+  height: 90px !important;
   font-family: 'revuen';
-  font-size: 12px;
+  font-size: 25px;
+  color: rgb(255,255,255);
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 0 5px #c300ff;
+  stroke: 2px #c300ff;
+}
+.inputletter {
+  display: flex;
+  font-family: 'revuen';
+  font-size: 25px;
   color: rgb(255,255,255);
   position: fixed;
   justify-content: center;
@@ -45,6 +62,34 @@
 @media only screen and (min-width: 0px) and (max-width:700px){
   .slogan {
     display: block;
+  }
+  .inputbutton {
+    display: flex;
+    font-family: 'revuen';
+    font-size: 12px;
+    color: rgb(255,255,255);
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 5px #c300ff;
+    stroke: 2px #c300ff;
+  }
+  .inputletter {
+    display: flex;
+    font-family: 'revuen';
+    font-size: 12px;
+    color: rgb(255,255,255);
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 5px #c300ff;
+    stroke: 2px #c300ff;
   }
   .logo {
     width: 100%;
