@@ -36,9 +36,9 @@ export const LandingPage = () => {
         <div className="slogan" style={{top: '77%'}}>
           Find out how much you can save in 1 minute.</div>
   
-        <div className="inputletter" style={{top: '42%'}}>
+        <div className="inputletter">
           please enter your zip code</div>
-        <Space.Compact className="inputbutton" style={{top: '48%'}}>
+        <Space.Compact className="inputbutton">
           <Input style={{height: '50px'}} placeholder=" zip code" />
           <Button style={{height: '50px', width: '100px', fontSize: '20px', fontFamily: 'revuen'}} type="primary" onClick={() => setPage("/comparison")}>Go!</Button>
         </Space.Compact>
