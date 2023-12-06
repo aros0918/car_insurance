@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { Header, ButtonGroup, ClickButton, Footer } from "../components";
 import { Typography, Select, Input } from "antd";
 import { UserOutlined, MailOutlined, PhoneOutlined, HomeOutlined } from '@ant-design/icons';
+import { Box, Card, CardHeader, CardContent, CardActions,Button, CardMedia } from "@mui/material";
+
+import insurance from '../images/apple.png';
 import left_img from '../images/left.webp';
 import right_img from '../images/right.webp';
 import './mainpage.css';
@@ -19,16 +22,22 @@ export const MainPage = () => {
   const [options3, setOptions3] = useState([]);
   const [jsonData, setJsonData] = useState(null);
   const [month, setMonth] = useState(null);
+  const [gender, setGender] = useState(null);
   const status = useSelector(state => state.status);
   const year = useSelector(state => state.year);
   const vehicle = useSelector(state => state.vehicle);
   const model = useSelector(state => state.model);
+  const birthday = useSelector(state => state.birthday);
+  const birthyear = useSelector(state => state.birthyear);
+  const [firstname, setFirstname] = useState(null)
+  const [secondname, setSecondname] = useState(null)
   const [firstyear, setFirstyear] = useState(null);
   const [firstvehicle, setFirstvehicle] = useState(null);
   const [firstmodel, setFirstmodel] = useState(null);
   const [secondyear, setSecondyear] = useState(null);
   const [secondvehicle, setSecondvehicle] = useState(null);
   const [secondmodel, setSecondmodel] = useState(null);
+  const [page, setPage] = useState("");
   const options2 = [
     { value: 'No', label: 'Not Currently Insured' },
     { value: '21st Century', label: '21st Century' },
@@ -48,7 +57,19 @@ export const MainPage = () => {
   ]
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    if (page === "/quotes") {
+      navigate("/quotes");
+    }
+  }, [page]);
+  const handleFirstName = (e) => {
+    setFirstname(e.target.value)
+  }
+  const handleSecondName = (e) => {
+    setSecondname(e.target.value)
+  }
   const handleChange = (value) => {
     if(status === 0){
       dispatch({
@@ -137,23 +158,29 @@ export const MainPage = () => {
       payload: 11,
     });
   }
-  const onSubmit12male = () => {
+  const onSubmit12male = (text1) => {
     dispatch({
       type: "Status",
       payload: 13,
     });
+    setGender(text1);
+    console.log(text1)
   }
-  const onSubmit12female = () => {
+  const onSubmit12female = (text2) => {
     dispatch({
       type: "Status",
       payload: 13,
     });
+    setGender(text2);
+    console.log(text2)
   }
-  const onSubmit12nonbinary = () => {
+  const onSubmit12nonbinary = (text3) => {
     dispatch({
       type: "Status",
       payload: 13,
     });
+    setGender(text3);
+    console.log(text3)
   }
   
   useEffect(() => {
@@ -579,9 +606,9 @@ export const MainPage = () => {
              <b>Gender</b>
            </Typography>
            <div className="gap1">
-             <ClickButton className="bigger" onClick={onSubmit12male}> Male </ClickButton>
-             <ClickButton className="bigger" onClick={onSubmit12female}> Female </ClickButton>
-             <ClickButton className="bigger" onClick={onSubmit12nonbinary}> Non-Binary </ClickButton>
+             <ClickButton className="bigger" onClick={() => onSubmit12male('Male')}> Male </ClickButton>
+             <ClickButton className="bigger" onClick={() => onSubmit12female('Female')}> Female </ClickButton>
+             <ClickButton className="bigger" onClick={() => onSubmit12nonbinary('Non-Binary')}> Non-Binary </ClickButton>
            </div>
           </>
         )}
@@ -771,6 +798,7 @@ export const MainPage = () => {
            <div className="gap1">
              <ButtonGroup buttons={buttons3} status={status}/>
            </div>
+           <div style={{marginTop: "10px"}}></div>
           </>
         )}
         {status === 24 && (
@@ -804,11 +832,11 @@ export const MainPage = () => {
               <Typography className="informword">
                 First Name
               </Typography>
-              <Input className="inputlength" size="large" placeholder="First Name" prefix={<UserOutlined />} />
+              <Input className="inputlength" size="large" onChange={handleFirstName} placeholder="First Name" prefix={<UserOutlined />} />
               <Typography className="informword">
                 Last Name
               </Typography>
-              <Input className="inputlength" size="large" placeholder="Last Name" prefix={<UserOutlined />} />
+              <Input className="inputlength" size="large" onChange={handleSecondName}  placeholder="Last Name" prefix={<UserOutlined />} />
            </Box>
            <div className="gap2">
               <ClickButton  onClick={() => dispatch({type: "Status", payload: 26})}> Continue </ClickButton>
@@ -840,8 +868,35 @@ export const MainPage = () => {
               <Input className="inputlength" size="large" placeholder="Phone Number" prefix={<PhoneOutlined />} />
            </Box>
            <div className="gap2">
-              <ClickButton> Get My Quotes </ClickButton>
+              <ClickButton onClick={() => dispatch({type: "Status", payload: 27})}> Get My Quotes </ClickButton>
            </div>
+          </>
+        )}
+        { status === 27 && (
+          <>
+            <Card>
+              <CardMedia style={{marginTop: '20px'}}
+                component="img"
+                height="140"
+                image={insurance}
+              />
+              <CardHeader title="Fair Car Insurance" />
+              <CardContent style={{marginTop: '-20px'}}>
+                <ul>
+                  <li>Name : {firstname} &nbsp; {secondname}</li>
+                  <li>Gender : {gender}</li>
+                  <li>Birthday : {month}/{birthday}/{birthyear} </li>
+                  <li>Car type</li>
+                  <ul>
+                    <li>{firstvehicle} &nbsp; {firstmodel}</li>
+                    {model !== firstmodel && <li>{secondvehicle} &nbsp; {secondmodel}</li>}
+                  </ul>
+                </ul>
+              </CardContent>
+              <CardActions style={{marginTop: '-20px', justifyContent: 'center'}}>
+                <Button type="primary">View My Quote</Button>
+              </CardActions>
+            </Card>
           </>
         )}
       </Box>

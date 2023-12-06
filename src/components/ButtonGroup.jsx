@@ -44,6 +44,18 @@ export const ButtonGroup = ({buttons, status}) => {
         payload: button,
       })
     }
+    if(status === 23){
+      dispatch({
+        type: "Birthday",
+        payload: button,
+      })
+    }
+    if(status === 24){
+      dispatch({
+        type: "Birthyear",
+        payload: button,
+      })
+    }
     dispatch({
       type: "Status",
       payload: status + 1,

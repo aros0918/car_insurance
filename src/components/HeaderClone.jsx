@@ -1,7 +1,6 @@
 import { Box } from "@mui/material";
-import { Progress } from "antd";
 import logo from "../images/blacklogo.webp";
-export const Header = (props) => {
+export const HeaderClone = (props) => {
   const { percent } = props;
   return (
     <>
@@ -21,28 +20,16 @@ export const Header = (props) => {
         <Box
           sx={{
             flex: 2,
-            marginRight: "100px",
             marginTop: "15px",
             alignItems: "center",
             display: "flex",
             flexDirection: "row",
-            justifyContent: "right"
+            justifyContent: "center"
           }}
         >
           <img src={logo} width={150}></img>
         </Box>
-        <Box
-          sx={{
-            flex: 4,
-            marginRight: "auto",
-            alignItems: "center",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-start"
-          }}
-        >
-          <Progress percent={percent} style={{ width: "80%" }}></Progress>
-        </Box>
+        
       </Box>
     </>
   );
